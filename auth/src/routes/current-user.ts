@@ -4,6 +4,7 @@ import { currentUser } from '@webfuzee/common';
 const router = express.Router();
 
 router.get('/api/users/currentuser', currentUser, (req, res) => {
+  console.log(req.currentUser, 'inside currentuser routes ');
   res.send({ currentUser: req.currentUser || null });
 });
 

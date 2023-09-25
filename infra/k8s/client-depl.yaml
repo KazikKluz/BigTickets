@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: client-depl
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: client
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: x00192532/client
+          image: x00192532/client:net3
 ---
 apiVersion: v1
 kind: Service
@@ -23,6 +23,7 @@ metadata:
 spec:
   selector:
     app: client
+  type: NodePort
   ports:
     - name: client
       protocol: TCP

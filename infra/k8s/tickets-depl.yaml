@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tickets
-          image: x00192532/tickets
+          image: x00192532/tickets:latest
           env:
             - name: MONGO_URI
               value: 'mongodb://tickets-mongo-srv:27017/tickets'
@@ -32,6 +32,7 @@ metadata:
 spec:
   selector:
     app: tickets
+  type: NodePort
   ports:
     - name: tickets
       protocol: TCP

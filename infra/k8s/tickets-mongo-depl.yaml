@@ -24,6 +24,7 @@ metadata:
 spec:
   selector:
     app: tickets-mongo
+  type: NodePort
   ports:
     - name: db
       protocol: TCP
