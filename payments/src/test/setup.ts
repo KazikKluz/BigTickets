@@ -10,6 +10,9 @@ declare global {
 
 jest.mock('../nats-wrapper');
 
+// use your stripe secret key
+process.env.STRIPE_KEY = '';
+
 let mongo: any;
 
 beforeAll(async () => {
