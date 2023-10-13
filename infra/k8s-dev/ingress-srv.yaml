@@ -3,43 +3,45 @@ kind: Ingress
 metadata:
   name: ingress-srv
   annotations:
-    spec.ingressClassName: nginx
+    # spec.ingressClassName: nginx
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
+  # added below
+  ingressClassName: nginx
   rules:
     - host: www.throughone.click
       http:
         paths:
           - path: /api/payments/?(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: payments-srv
                 port:
                   number: 3000
           - path: /api/users/?(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: auth-srv
                 port:
                   number: 3000
           - path: /api/tickets/?(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: tickets-srv
                 port:
                   number: 3000
           - path: /api/orders/?(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: orders-srv
                 port:
                   number: 3000
           - path: /?(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: client-srv

@@ -3,9 +3,11 @@ kind: Ingress
 metadata:
   name: ingress-srv
   annotations:
-    spec.ingressClassName: nginx
+    # spec.ingressClassName: nginx
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
+  # added below
+  ingressClassName: nginx
   rules:
     - host: www.throughone.click
       http:
